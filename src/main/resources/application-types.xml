@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="kis9989" format="json">
+      <types:shape format="weave" example="examples/airindiajsonresponse.JSON"><![CDATA[%dw 2.0
+
+type kis9989 = Array<{|  ID: Number {"typeId": "int"},   airline: String,   flightCode: String,   fromAirportCode: String,   toAirportCode: String,   departureDate: String,   emptySeats: Number {"typeId": "int"},   totalSeats: Number {"typeId": "int"},   price: Number {"typeId": "int"},   planeType: String|}> {"example": "[{\\\"ID\\\":101,\\\"airline\\\":\\\"Indigo\\\",\\\"flightCode\\\":\\\"IND101\\\",\\\"fromAirportCode\\\":\\\"\\\",\\\"toAirportCode\\\":\\\"\\\",\\\"departureDate\\\":\\\"\\\",\\\"emptySeats\\\":0,\\\"totalSeats\\\":200,\\\"price\\\":199,\\\"planeType\\\":\\\"Indigo 737\\\"},{\\\"ID\\\":102,\\\"airline\\\":\\\"Indigo\\\",\\\"flightCode\\\":\\\"IND102\\\",\\\"fromAirportCode\\\":\\\"\\\",\\\"toAirportCode\\\":\\\"\\\",\\\"departureDate\\\":\\\"\\\",\\\"emptySeats\\\":24,\\\"totalSeats\\\":350,\\\"price\\\":450,\\\"planeType\\\":\\\"Indigo 747\\\"},{\\\"ID\\\":103,\\\"airline\\\":\\\"Indigo\\\",\\\"flightCode\\\":\\\"IND103\\\",\\\"fromAirportCode\\\":\\\"\\\",\\\"toAirportCode\\\":\\\"\\\",\\\"departureDate\\\":\\\"\\\",\\\"emptySeats\\\":33,\\\"totalSeats\\\":400,\\\"price\\\":450,\\\"planeType\\\":\\\"Indigo 757\\\"}]"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#24267673-ddfd-441e-8c9c-43010b48b4e9">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="kis9989"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
